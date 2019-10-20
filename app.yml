@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   tasks:
+   - name: pull the image from DOcker registry
+     raw: docker pull kanduriprasanth/dockerimage
+
+   - name: remove existing container if already exists
+     raw: docker rm -f webapp
+     ignore_errors: true
+
+   - name:  spin the container
+     raw: docker run -dti --name webapp -p 91:80 kanduriprasanth/dockerimage /bin/bash
+...
+
