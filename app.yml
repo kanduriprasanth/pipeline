@@ -1,5 +1,5 @@
 ---
- - hosts: all
+ - hosts: qa
    tasks:
    - name: pull the image from DOcker registry
      raw: docker pull kanduriprasanth/project2
