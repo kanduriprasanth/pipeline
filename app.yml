@@ -10,5 +10,17 @@
 
    - name:  spin the container
      raw: docker run -dti --name app -p 71:80 kanduriprasanth/project2 /bin/bash
+
+ - hosts: dev
+   tasks:
+   - name: pull the image from Docker Registry
+     raw: docker pull kanduriprasanth/project3
+
+   - name: Remove the container if present
+     raw: docker rm -f app
+     ignore_errors: true
+   
+   - name: spin the container
+     raw: docker run -dti --name app -p 91:80 kanduriprasanth/project3 /bin/bash
 ...
 
